@@ -1,6 +1,9 @@
 # ps2-mouse-driver-sweb
 A low-level interrupt-driven x86 64-bit PS/2 mouse driver implemented in C++ for **SWEB**, developed at TU Graz.
 
+# demo
+![til](./demo.gif)
+
 # adding the mouse driver to SWEB:
 ## Step 1) add the files directly to the folder structure
 add 'arch/common/include/MouseManager.h'
