@@ -1,6 +1,6 @@
 # PS/2 Mouse Driver for SWEB (x86_64)
 
-An interrupt-driven x86_64 PS/2 mouse driver implemented in C++ for **SWEB** (Simple Working Educational Operating System), developed at Graz University of Technology (TU Graz).
+An interrupt-driven x86_64 PS/2 mouse driver implemented in C++ for **SWEB**, an educational OS developed at Graz University of Technology (TU Graz).
 
 ![Demo](./demo.gif)
 
@@ -10,7 +10,8 @@ An interrupt-driven x86_64 PS/2 mouse driver implemented in C++ for **SWEB** (Si
 
 This driver was developed independently by the author as an **extra-credit assignment** while taking the **Operating Systems** course at **Graz University of Technology (TU Graz)**.
 
-**SWEB** (*Schon wieder ein Betriebssystem*) is an educational operating system framework developed at TU Graz (Institute of Information Security / IAIK) to teach core OS concepts such as low-level hardware control, interrupt handling, thread scheduling, and memory management.
+**SWEB** (*Schon wieder ein Betriebssystem*) is an educational operating system framework developed at TU Graz (Institute of Information Security / IAIK) to teach core OS concepts such as low-level hardware control, interrupt handling, thread scheduling, and memory management.  
+https://github.com/isec-tugraz/sweb
 
 ### Why Only Driver Files Are Published
 To comply with university policies and academic integrity guidelines regarding the redistribution of SWEB source code and course materials, the entire SWEB operating system codebase cannot be re-uploaded or published publicly.
@@ -26,11 +27,6 @@ To enable students, instructors, or anyone with access to SWEB to build and run 
 ## Features
 
 - **Interrupt-Driven I/O**: Operates via **IRQ 12** on the x86 8259 PIC and the Interrupt Descriptor Table (IDT).
-- **PS/2 Controller Handshaking**: Configures the PS/2 auxiliary device port (`0x64` / `0x60`), enables interrupts via the Compaq status byte, and sets default streaming parameters.
-- **3-Byte Packet State Machine**: Processes standard 3-byte PS/2 data packets across successive interrupts:
-  - Byte 1: Button states, sign bits, and overflow/integrity checks.
-  - Byte 2: Relative X displacement (with two's complement sign extension).
-  - Byte 3: Relative Y displacement (with two's complement sign extension).
 - **Terminal Cursor Rendering**: Tracks bounded absolute coordinates on the SWEB terminal screen, saves the character under the cursor (`^`), and restores the underlying text when the mouse moves.
 - **Kernel Debugging**: Integrates with SWEB's `debug(...)` facility and ANSI color logging.
 
