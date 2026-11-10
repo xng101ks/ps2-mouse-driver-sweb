@@ -181,7 +181,10 @@ void MouseManager::serviceIRQ(void)
     debug(MOUSE_DRIVER, "third interrupt, byte: %x\n", packet[2]);
 
     //reset the character were the mouse pointer is currently at
-    currentThread->getTerminal()->setCharacter(absolute_ypos, absolute_xpos, remembered_char);
+    if (currentThread && currentThread->getTerminal())
+    {
+      currentThread->getTerminal()->setCharacter(absolute_ypos, absolute_xpos, remembered_char);
+    }
 
     //finally calculate the absolute positions from the deltas on the x and y axis
     if(x_neg == 0)
