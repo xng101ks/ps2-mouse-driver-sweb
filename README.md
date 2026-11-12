@@ -176,7 +176,7 @@ Then instantiate the singleton and enable interrupts during kernel initializatio
 
 ---
 
-### Step 5: (Optional) Define Debug Output Color
+### Step 5: Define Debug Output Color
 
 To colorize driver logs in the kernel debug console, add the following definition to `common/include/console/debug.h`:
 
